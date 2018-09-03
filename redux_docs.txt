@@ -1,0 +1,43 @@
+                                     REDUX
+                                    
+Redux:
+A function that returns a piece of application state. Our applications can have many piece
+of states so we can have many reducers. Value of state is produced by reducers.       
+
+Container:
+  A React Component that has a direct connection to the state managed by redux.
+
+Container vs Component:
+  Most parent Component that uses/cares about a piece of state is made the container.     
+
+mapStateToProps(state):
+  Takes one argument, application state, returns something(mostly object) which acts as props
+  for the container in which it is defined.  
+
+connect:
+  Takes the component and mapStateToProps and returns the container which is exported from
+  that file.
+
+Whenever application state changes all containers rerender.
+
+combineReducers:
+  Adds key to global spplication state.
+
+
+1. On any event action creator is called. Action creator is a function that returns an object.
+2. That object is then sent to all the reducers.
+3. Reducers then can choose depending on the action to return a different piece of state.
+4. The newly returned piece of state gets piped into application state.
+5. The application state then gets pumped back to React application that causes all components
+   to rerender.
+
+The object(called action) returned from Action creator has a
+1. type that describes the type of action that wasjust triggered.
+2. Data or payload which further describes the action.
+
+Reducer generally contains switch statement which selects the piece of statement to be returned
+depending on the action type.
+
+Once all reducers return the new piece of state, all states get assembled in the combineReducers
+and pump back into all diff containers. All containers will run mapStateToProps and render 
+different data.
